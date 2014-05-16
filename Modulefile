@@ -1,4 +1,4 @@
-name    'hardening/stdlib'
+name    'hardening/hardening_stdlib'
 version '0.1.0'
 source 'https://github.com/TelekomLabs/puppet-hardening-stdlib'
 author 'Dominik Richter'
