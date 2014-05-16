@@ -1,15 +1,16 @@
 Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |args|
   user_params = args[0]
   hardening_params = args[1]
+  name = args[2] || ''
 
   # return the merged value
-  HardeningStdlib.deep_merge_hardening user_params, hardening_params
+  HardeningStdlib.deep_merge_hardening user_params, hardening_params, name
 end
 
 module HardeningStdlib
   extend self
 
-  def deep_merge_hardening user_param, hardening_param
+  def deep_merge_hardening user_param, hardening_param, name
     # merge hashes
     if user_param.instance_of? Hash and
       hardening_param.instance_of? Hash
@@ -24,7 +25,7 @@ module HardeningStdlib
           next
         end
 
-        user_param[k] = deep_merge_hardening user_param[k], hardening_param[k]
+        user_param[k] = deep_merge_hardening user_param[k], hardening_param[k], "#{name}[#{k}]"
       end
 
     else
@@ -35,7 +36,8 @@ module HardeningStdlib
       end
 
       if user_param != hardening_param
-        Puppet.warning "Hardening parameters: you already defined '#{user_param}' instead of '#{hardening_param}'."
+        Puppet.warning "Hardening parameters: you already defined '#{name}' as '#{user_param}'. "+
+          "Hardening recommends to use '#{hardening_param}'."
       end
 
     end
