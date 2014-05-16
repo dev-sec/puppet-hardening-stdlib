@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+* feature: add full parameter names to merge_hardening warnings
+
 ## 0.1.1
 
 * improvement: make merging deep-merge on maps

@@ -1,5 +1,5 @@
 name    'hardening/hardening_stdlib'
-version '0.1.1'
+version '0.1.2'
 source 'https://github.com/TelekomLabs/puppet-hardening-stdlib'
 author 'Dominik Richter'
 license 'Apache License, Version 2.0'
