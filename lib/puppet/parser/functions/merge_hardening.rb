@@ -26,7 +26,7 @@ Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |a
     # merge simple values
     if user_params.nil?
       user_params = hardening_params
-    else
+    end
 
     if user_params != hardening_params
       # print some Warning!
