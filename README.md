@@ -15,19 +15,26 @@ Shared functions for hardening modules.
 Try to set a hardening parameter. The user still has the option to override it,
 which will result in a warning.
 
+Parameters
+
+    merge_hardening( $original, $hardening, [ $name_of_parameter ] )
+
+The `$name_of_parameter` is optional, but highly recommended to know which parameter
+results in a Warning.
+
 For simple values:
 
     # Only defined by hardening:
     # $original_option = undef
     # $hardening_option = "off"
     # $merged_option = "off"
-    $merged_option = merge_hardening( $original_option, $hardening_option )
+    $merged_option = merge_hardening( $original_option, $hardening_option, "param <name>" )
 
     # User override:
     # $original_option = "on"
     # $hardening_option = "off"
     # $merged_option = "on" (emits a warning)
-    $merged_option = merge_hardening( $original_option, $hardening_option )
+    $merged_option = merge_hardening( $original_option, $hardening_option, "param <name>" )
 
 For maps:
 
@@ -35,13 +42,13 @@ For maps:
     # $original_option = { a: "on" }
     # $hardening_option = { b: "off" }
     # $merged_option = { a: "on", b: "off" }
-    $merged_option = merge_hardening( $original_option, $hardening_option )
+    $merged_option = merge_hardening( $original_option, $hardening_option, "map <name>" )
 
     # User override:
     # $original_option = { a: "on", b: "on" }
     # $hardening_option = { b: "off" }
     # $merged_option = { a: "on", b: "on" } (emits a warning)
-    $merged_option = merge_hardening( $original_option, $hardening_option )
+    $merged_option = merge_hardening( $original_option, $hardening_option, "map <name>" )
 
 ### getparam
 
