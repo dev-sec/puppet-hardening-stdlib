@@ -1,0 +1,23 @@
+{
+  "name": "hardening/hardening_stdlib",
+  "version": "0.1.2",
+  "source": "https://github.com/TelekomLabs/puppet-hardening-stdlib",
+  "author": "Dominik Richter",
+  "license": "Apache License, Version 2.0",
+  "summary": "Shared functions for hardening modules",
+  "description": "Shared functions for hardening modules",
+  "project_page": "https://github.com/TelekomLabs/puppet-hardening-stdlib",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "CHANGELOG.md": "3ff2d6ac1ef4df21aa0195f7e920c288",
+    "Modulefile": "1762ec8b97ff986c805b2c3582f44b91",
+    "README.md": "b86d760cfbfef7b16c1f3c78cad93325",
+    "lib/puppet/parser/functions/getparam.rb": "c29420eb4de01d5218d9dd7cdfcd3e15",
+    "lib/puppet/parser/functions/merge_hardening.rb": "45bd6ab106047585dc5907568a926c6b"
+  }
+}
