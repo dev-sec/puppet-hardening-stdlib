@@ -9,6 +9,8 @@ Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |a
      # do a manual merge since we need to see what is set
      # or gets overwritten
      hardening_params.each do |k,v|
+       # only set the hardening parameter, if the user
+       # didn't define it himself
        if not user_params.key? k
          user_params[k] = v
        end
@@ -22,9 +24,12 @@ Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |a
   else
 
     # merge simple values
-    if user_params != hardening_params
-      # print some warning
+    if user_params == undef
       user_params = hardening_params
+    else
+
+    if user_params != hardening_params
+      # print some Warning!
     end
 
   end
