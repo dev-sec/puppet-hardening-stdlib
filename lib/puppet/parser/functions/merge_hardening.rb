@@ -16,7 +16,7 @@ Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |a
        end
 
        if user_params[k] != hardening_params[k]
-         # print some Warning!
+         Puppet.warning "Hardening parameters: you already defined '#{k}' as '#{user_params[k]}' instead of '#{hardening_params[k]}'."
        end
      end
 
@@ -29,7 +29,7 @@ Puppet::Parser::Functions::newfunction(:merge_hardening, :type => :rvalue) do |a
     end
 
     if user_params != hardening_params
-      # print some Warning!
+      Puppet.warning "Hardening parameters: you already defined '#{user_params}' instead of '#{hardening_params}'."
     end
 
   end
