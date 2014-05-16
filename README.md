@@ -10,7 +10,39 @@ Shared functions for hardening modules.
 
 ## Usage
 
-...
+### merge_hardening
+
+Try to set a hardening parameter. The user still has the option to override it,
+which will result in a warning.
+
+For simple values:
+
+    # Only defined by hardening:
+    # $original_option = undef
+    # $hardening_option = "off"
+    # $merged_option = "off"
+    $merged_option = merge_hardening( $original_option, $hardening_option )
+
+    # User override:
+    # $original_option = "on"
+    # $hardening_option = "off"
+    # $merged_option = "on" (emits a warning)
+    $merged_option = merge_hardening( $original_option, $hardening_option )
+
+For maps:
+
+    # Only defined by hardening:
+    # $original_option = { a: "on" }
+    # $hardening_option = { b: "off" }
+    # $merged_option = { a: "on", b: "off" }
+    $merged_option = merge_hardening( $original_option, $hardening_option )
+
+    # User override:
+    # $original_option = { a: "on", b: "on" }
+    # $hardening_option = { b: "off" }
+    # $merged_option = { a: "on", b: "on" } (emits a warning)
+    $merged_option = merge_hardening( $original_option, $hardening_option )
+
 
 ## Contributors + Kudos
 
