@@ -43,6 +43,10 @@ For maps:
     # $merged_option = { a: "on", b: "on" } (emits a warning)
     $merged_option = merge_hardening( $original_option, $hardening_option )
 
+### getparam
+
+Taken from stdlib 4.2. You don't need to require this version of stdlib, but
+still get access to this function. See: [stdlib v4.2 getparam description](https://github.com/puppetlabs/puppetlabs-stdlib/tree/08b00d9229961d7b3c3cba997bfb35c8d47e4c4b#getparam)
 
 ## Contributors + Kudos
 
